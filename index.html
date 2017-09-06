@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+	<title>Loading</title>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link href='http://cdn.jsdelivr.net/semantic-ui/2.1.6/semantic.min.css' media='all' rel='stylesheet' type='text/css'/>
+	  <script src='https://cdn.jsdelivr.net/jquery/3.0.0-alpha1/jquery.min.js'></script>
+	  <script src='http://cdn.jsdelivr.net/semantic-ui/2.1.6/semantic.min.js'></script>
+	<script src="https://unpkg.com/vue"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>	
+	$(function() {
+		$( ".sortable" ).sortable();
+	    $( ".sortable" ).disableSelection();
+	})
+  </script>
+</head>
+<body>
+	<div id="app">
+		<header>
+			<img src="img/logo.png" alt="">
+			<div class="header">
+				<a href="" class="login">Login</a>
+				<a href="" class="signup">Signup</a>
+			</div>
+		</header>
+		<div id="main-board">
+			<div id="myframe">
+				<h2>我的行程</h2>
+				<div class="period-board">
+
+					<div class="period" v-for="(p,i) in frameWork" :class="p.title" v-on:mouseover="hover(i)" v-on:mouseleave="hover(i)" :style="p.style">
+						<h2>{{p.title}}</h2>
+						<ul class="sortable">
+							<!--<li class="ui-state-default ui-widget-content ${period}">
+								<h3>知識館底</h3>
+								<div class="time">12:00~19:00</div>
+								<div class="note"><img src="img/note.png" alt=""></div>
+								<img src="img/close.png" class= "close" alt="">
+							</li>-->
+							<li class="ui-state-default ui-widget-content " v-for="(l,j) in myList[i].list" v-bind:class="[l.period, l.category]">
+								<h3>{{l.title}}</h3>
+								<div class="time">{{l.time}}</div>
+								<div class="note"><img src="img/note.png" alt=""></div>
+								<img src="img/close.png" class= "close" alt="" @click="remove(i,j)">
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div id="experience-board">
+				<div class="col-1 col">
+					<div class="spot" v-for="(spot,i) in recommendedSpot" v-if="i < 3" :class="spot.period" :style="spot.style" v-on:mousedown = "select(i)">
+						<h3>{{spot.title}}</h3>
+						<img :src="spot.imgUrl" alt="">
+					</div>
+				</div>
+				<div class="col-2 col">
+					<div class="spot" v-for="(spot,i) in recommendedSpot" v-if="i >= 3 && i < 6" :class="spot.period" :style="spot.style" v-on:mousedown = "select(i)">
+						<h3>{{spot.title}}</h3>
+						<img :src="spot.imgUrl" alt="">
+					</div>
+				</div>
+				<div class="col-3 col">
+					<div class="spot" v-for="(spot,i) in recommendedSpot" v-if="i >= 6 && i < 9" :class="spot.period" :style="spot.style" v-on:mousedown = "select(i)">
+						<img :src="spot.imgUrl" alt="">
+						<h3>{{spot.title}}</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<template id="travel-element">
+		<div class="element">
+			<h3 class="title">test</h3>
+		</div>
+	</template>
+	<script src="vendor.bundle.js"></script>
+	<script src="main.bundle.js"></script>
+</body>
+</html>
