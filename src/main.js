@@ -55,7 +55,7 @@ const recommends = [
 	},
 	{
 		title: '奇美博物館',
-		imgUrl: 'img/musium.jpg',
+		imgUrl: 'img/musium.JPG',
 		period: 'one-helf',
 		style: {
 			position: 'relative',
@@ -107,7 +107,7 @@ const recommends = [
 	},
 	{
 		title: '台南甜點',
-		imgUrl: 'img/desert.jpg',
+		imgUrl: 'img/desert.JPG',
 		period: 'one-hour',
 		style: {
 			position: 'relative',
@@ -236,46 +236,6 @@ window.onmouseup = ()=> {
 					+ `<img src="img/close.png" class="close" alt="" @click = "remove">`
 					+ '</li>'
 		$(`.${frameWork} > .sortable`).append(element)*/
-	}else{
-		app.recommendedSpot[app.nowId].style = {
-			position: 'relative',
-			backgroundColor: 'white'
-		}
 	}
 	app.nowId = -1
-}
-/*
-window.onmouseup = ()=>{
-	if(app.nowId != -1){
-		app.postits[app.nowId].locked = false
-		let projectId = app.projects[app.nowProjectId].id
-		let content = {}
-		content.index = app.nowId
-		content.x = app.mousePos.x
-		content.y = app.mousePos.y
-		$.ajax({
-		        	type: 'post',
-			        data: JSON.stringify(content),
-			        contentType: 'application/json',
-			        url: './position/'+projectId+'',
-			        success: function(data) {
-			        	console.log('update position')
-			        }
-			    })
-		socket.emit('stop',{id: app.nowId})
-	}
-	app.nowId = -1
-	//console.log(app.nowId)
-}
-*/
-window.onmousedown = ()=>{
-	let x = app.mousePos.x
-	let y = app.mousePos.y
-
-	//use position to avoid form area
-	if( (x >= 350 && y >= 350) || ( x >= 350 && y <= 350) || ( x <= 350 && y >= 350)){
-		app.profileForm = {
-			display: "none"
-		}
-	}
 }
