@@ -1,0 +1,171 @@
+
+html,body
+	border: 0
+	margin: 0
+	padding: 0
+
+#app
+	display: inline-flex
+	position: relative
+	width: 100%
+	padding-top: 100px
+	*
+		//border: 1px solid gray
+	header
+		position: absolute
+		display: inline-flex
+		max-width: 2000px
+		top: 0px
+		left: 0px
+		width: calc(100% - 40px)
+		padding: 0px 20px
+		justify-content: flex-start
+		background-color: white
+		z-index: 99
+		>img
+			width: 120px
+			height: 120px
+			margin: 20px
+		.header
+			display: inline-flex
+			flex-direction: row-reverse
+			justify-content: flex-start
+			width: calc(100% - 180px)
+			height: 50px
+			padding-left: 20px
+			border-bottom: 0.6px solid
+			a
+				text-decoration: none
+				color: black
+				margin: 16px 22px 5px 5px
+				font-size: 14px
+	#main-board
+		display: inline-flex
+		width: calc(100% - 40px)
+		flex-direction: row
+		padding: 100px 20px 150px 20px
+		#myframe
+			display: inline-flex
+			max-width: 1200px
+			width: calc(55% - 20px)
+			padding: 10px
+			flex-direction: column
+			justify-content: center
+			align-items: center
+			.period-board
+				display: inline-flex
+				width: 80%
+				flex-direction: column
+				justify-content: center
+				align-items: center
+				.period
+					display: inline-flex
+					position: relative
+					flex-direction: column
+					width: 100%
+					height: 280px
+					margin-top: 20px
+					background-color: rgba(249,235,197,0.43)
+					>h2
+						position: absolute
+						top: 50%
+						left: 50%
+						transform: translate(-50%,-50%)
+						color: #e0dbcf
+					.element
+						display: inline-flex
+						width: 100%
+						height: 150px
+						border-radius: 7px
+						border: 1px solid
+					.sortable
+						display: inline-flex
+						width: 100%
+						flex-direction: column
+						li
+							display: inline-flex
+							position: relative
+							width: calc(100% - 20px)
+							margin-right: 10px
+							padding: 10px
+							height: 70px
+							border-radius: 7px
+							margin-bottom: 2px
+							list-style-type: none
+							background-color: #FDEBC7
+							cursor: pointer
+							justify-content: flex-start
+							>*
+								display: inline-flex
+								justify-content: center
+								align-items: center
+							h3
+								width: 35%
+							.time
+								width: 40%
+							.note
+								width: 25%
+								img
+									width: 30px
+									height: 30px
+							.close
+								position: absolute
+								width: 15px
+								height: 15px
+								right: 0px
+								top: 0px
+								transform: translate(50%,-50%)
+								transition: all 0.4s
+								&:hover
+									width: 18px
+									height: 18px
+						.one-hour
+							height: 100px
+						.one-helf
+							height: 150px
+						.two-hour
+							height: 200px
+						.two-helf
+							height: 250px
+						.sugar
+							background-color: #c4a15b
+					.evening
+						height: 200px
+		#experience-board
+			display: inline-flex
+			width: calc(45% - 20px)
+			margin-top: 50px
+			padding: 10px
+			flex-wrap: nowrap
+			justify-content: flex-start
+			align-content: flex-start
+			.col
+				display: inline-flex
+				flex-direction: column
+				width: 150px
+				justify-content: flex-start
+				margin-right: 10px
+				.spot
+					display: inline-flex
+					width: 150px
+					height: 150px
+					margin-top: 10px
+					margin-right: 10px
+					position: relative
+					cursor: pointer
+					img
+						position: absolute
+						top: 0px
+						left: 0px
+						width: 100%
+						height: 100%
+				.one-hour
+					height: 100px
+				.one-helf
+					height: 140px
+				.two-hour
+					height: 180px
+				.two-helf
+					height: 220px
+
+
