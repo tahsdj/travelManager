@@ -63,7 +63,7 @@ const recommends = [
 	},
 	{
 		title: '奇美博物館',
-		imgUrl: 'img/musium.jpg',
+		imgUrl: 'img/musium.JPG',
 		period: 'one-helf',
 		style: {
 			position: 'relative',
@@ -115,7 +115,7 @@ const recommends = [
 	},
 	{
 		title: '台南甜點',
-		imgUrl: 'img/desert.jpg',
+		imgUrl: 'img/desert.JPG',
 		period: 'one-hour',
 		style: {
 			position: 'relative',
@@ -244,48 +244,8 @@ window.onmouseup = ()=> {
 					+ `<img src="img/close.png" class="close" alt="" @click = "remove">`
 					+ '</li>'
 		$(`.${frameWork} > .sortable`).append(element)*/
-	}else{
-		app.recommendedSpot[app.nowId].style = {
-			position: 'relative',
-			backgroundColor: 'white'
-		}
 	}
 	app.nowId = -1
-}
-/*
-window.onmouseup = ()=>{
-	if(app.nowId != -1){
-		app.postits[app.nowId].locked = false
-		let projectId = app.projects[app.nowProjectId].id
-		let content = {}
-		content.index = app.nowId
-		content.x = app.mousePos.x
-		content.y = app.mousePos.y
-		$.ajax({
-		        	type: 'post',
-			        data: JSON.stringify(content),
-			        contentType: 'application/json',
-			        url: './position/'+projectId+'',
-			        success: function(data) {
-			        	console.log('update position')
-			        }
-			    })
-		socket.emit('stop',{id: app.nowId})
-	}
-	app.nowId = -1
-	//console.log(app.nowId)
-}
-*/
-window.onmousedown = ()=>{
-	let x = app.mousePos.x
-	let y = app.mousePos.y
-
-	//use position to avoid form area
-	if( (x >= 350 && y >= 350) || ( x >= 350 && y <= 350) || ( x <= 350 && y >= 350)){
-		app.profileForm = {
-			display: "none"
-		}
-	}
 }
 
 
@@ -329,7 +289,7 @@ exports = module.exports = __webpack_require__(3)(undefined);
 
 
 // module
-exports.push([module.i, "html, body {\n  border: 0;\n  margin: 0;\n  padding: 0; }\n\n#app {\n  display: inline-flex;\n  position: relative;\n  width: 100%;\n  padding-top: 100px; }\n  #app header {\n    position: absolute;\n    display: inline-flex;\n    max-width: 2000px;\n    top: 0px;\n    left: 0px;\n    width: calc(100% - 40px);\n    padding: 0px 20px;\n    justify-content: flex-start;\n    background-color: white;\n    z-index: 99; }\n    #app header > img {\n      width: 120px;\n      height: 120px;\n      margin: 20px; }\n    #app header .header {\n      display: inline-flex;\n      flex-direction: row-reverse;\n      justify-content: flex-start;\n      width: calc(100% - 180px);\n      height: 50px;\n      padding-left: 20px;\n      border-bottom: 0.6px solid; }\n      #app header .header a {\n        text-decoration: none;\n        color: black;\n        margin: 16px 22px 5px 5px;\n        font-size: 14px; }\n  #app #main-board {\n    display: inline-flex;\n    width: calc(100% - 40px);\n    flex-direction: row;\n    padding: 100px 20px 150px 20px; }\n    #app #main-board #myframe {\n      display: inline-flex;\n      max-width: 1200px;\n      width: calc(55% - 20px);\n      padding: 10px;\n      flex-direction: column;\n      justify-content: center;\n      align-items: center; }\n      #app #main-board #myframe .period-board {\n        display: inline-flex;\n        width: 80%;\n        flex-direction: column;\n        justify-content: center;\n        align-items: center; }\n        #app #main-board #myframe .period-board .period {\n          display: inline-flex;\n          position: relative;\n          flex-direction: column;\n          width: 100%;\n          height: 280px;\n          margin-top: 20px;\n          background-color: rgba(249, 235, 197, 0.43); }\n          #app #main-board #myframe .period-board .period > h2 {\n            position: absolute;\n            top: 50%;\n            left: 50%;\n            transform: translate(-50%, -50%);\n            color: #e0dbcf; }\n          #app #main-board #myframe .period-board .period .element {\n            display: inline-flex;\n            width: 100%;\n            height: 150px;\n            border-radius: 7px;\n            border: 1px solid; }\n          #app #main-board #myframe .period-board .period .sortable {\n            display: inline-flex;\n            width: 100%;\n            flex-direction: column; }\n            #app #main-board #myframe .period-board .period .sortable li {\n              display: inline-flex;\n              position: relative;\n              width: calc(100% - 20px);\n              margin-right: 10px;\n              padding: 10px;\n              height: 70px;\n              border-radius: 7px;\n              margin-bottom: 2px;\n              list-style-type: none;\n              background-color: #FDEBC7;\n              cursor: pointer;\n              justify-content: flex-start; }\n              #app #main-board #myframe .period-board .period .sortable li > * {\n                display: inline-flex;\n                justify-content: center;\n                align-items: center; }\n              #app #main-board #myframe .period-board .period .sortable li h3 {\n                width: 35%; }\n              #app #main-board #myframe .period-board .period .sortable li .time {\n                width: 40%; }\n              #app #main-board #myframe .period-board .period .sortable li .note {\n                width: 25%; }\n                #app #main-board #myframe .period-board .period .sortable li .note img {\n                  width: 30px;\n                  height: 30px; }\n              #app #main-board #myframe .period-board .period .sortable li .close {\n                position: absolute;\n                width: 15px;\n                height: 15px;\n                right: 0px;\n                top: 0px;\n                transform: translate(50%, -50%);\n                transition: all 0.4s; }\n                #app #main-board #myframe .period-board .period .sortable li .close:hover {\n                  width: 18px;\n                  height: 18px; }\n            #app #main-board #myframe .period-board .period .sortable .one-hour {\n              height: 100px; }\n            #app #main-board #myframe .period-board .period .sortable .one-helf {\n              height: 150px; }\n            #app #main-board #myframe .period-board .period .sortable .two-hour {\n              height: 200px; }\n            #app #main-board #myframe .period-board .period .sortable .two-helf {\n              height: 250px; }\n            #app #main-board #myframe .period-board .period .sortable .sugar {\n              background-color: #c4a15b; }\n          #app #main-board #myframe .period-board .period .evening {\n            height: 200px; }\n    #app #main-board #experience-board {\n      display: inline-flex;\n      width: calc(45% - 20px);\n      margin-top: 50px;\n      padding: 10px;\n      flex-wrap: nowrap;\n      justify-content: flex-start;\n      align-content: flex-start; }\n      #app #main-board #experience-board .col {\n        display: inline-flex;\n        flex-direction: column;\n        width: 150px;\n        justify-content: flex-start;\n        margin-right: 10px; }\n        #app #main-board #experience-board .col .spot {\n          display: inline-flex;\n          width: 150px;\n          height: 150px;\n          margin-top: 10px;\n          margin-right: 10px;\n          position: relative;\n          cursor: pointer; }\n          #app #main-board #experience-board .col .spot img {\n            position: absolute;\n            top: 0px;\n            left: 0px;\n            width: 100%;\n            height: 100%; }\n        #app #main-board #experience-board .col .one-hour {\n          height: 100px; }\n        #app #main-board #experience-board .col .one-helf {\n          height: 140px; }\n        #app #main-board #experience-board .col .two-hour {\n          height: 180px; }\n        #app #main-board #experience-board .col .two-helf {\n          height: 220px; }\n", ""]);
+exports.push([module.i, "html, body {\n  border: 0;\n  margin: 0;\n  padding: 0; }\n\n#app {\n  display: inline-flex;\n  position: relative;\n  width: 100%;\n  padding-top: 100px; }\n  #app header {\n    position: absolute;\n    display: inline-flex;\n    max-width: 2000px;\n    top: 0px;\n    left: 0px;\n    width: calc(100% - 40px);\n    padding: 0px 20px;\n    justify-content: flex-start;\n    background-color: white;\n    z-index: 99; }\n    #app header > img {\n      width: 120px;\n      height: 120px;\n      margin: 20px; }\n    #app header .header {\n      display: inline-flex;\n      flex-direction: row-reverse;\n      justify-content: flex-start;\n      width: calc(100% - 250px);\n      height: 50px;\n      padding-left: 20px;\n      border-bottom: 0.6px solid; }\n      #app header .header a {\n        text-decoration: none;\n        color: rgba(0, 0, 0, 0.61);\n        margin: 16px 22px 5px 5px;\n        font-size: 14px;\n        transition: color 0.4s; }\n        #app header .header a:hover {\n          color: black; }\n  #app #main-board {\n    display: inline-flex;\n    width: calc(100% - 40px);\n    flex-direction: row;\n    padding: 100px 20px 150px 20px; }\n    #app #main-board #myframe {\n      display: inline-flex;\n      max-width: 1200px;\n      width: calc(55% - 20px);\n      padding: 10px;\n      flex-direction: column;\n      justify-content: center;\n      align-items: center; }\n      #app #main-board #myframe .period-board {\n        display: inline-flex;\n        width: 80%;\n        flex-direction: column;\n        justify-content: center;\n        align-items: center; }\n        #app #main-board #myframe .period-board .period {\n          display: inline-flex;\n          position: relative;\n          flex-direction: column;\n          width: 100%;\n          height: 280px;\n          margin-top: 20px;\n          background-color: rgba(249, 235, 197, 0.43); }\n          #app #main-board #myframe .period-board .period > h2 {\n            position: absolute;\n            top: 50%;\n            left: 50%;\n            transform: translate(-50%, -50%);\n            color: #e0dbcf; }\n          #app #main-board #myframe .period-board .period .element {\n            display: inline-flex;\n            width: 100%;\n            height: 150px;\n            border-radius: 7px;\n            border: 1px solid; }\n          #app #main-board #myframe .period-board .period .sortable {\n            display: inline-flex;\n            width: 100%;\n            flex-direction: column;\n            padding: 0; }\n            #app #main-board #myframe .period-board .period .sortable li {\n              display: inline-flex;\n              position: relative;\n              width: calc(100% - 20px);\n              margin-right: 10px;\n              padding: 10px;\n              height: 70px;\n              border-radius: 7px;\n              margin-bottom: 2px;\n              list-style-type: none;\n              background-color: #FDEBC7;\n              cursor: pointer;\n              justify-content: flex-start; }\n              #app #main-board #myframe .period-board .period .sortable li > * {\n                display: inline-flex;\n                justify-content: center;\n                align-items: center; }\n              #app #main-board #myframe .period-board .period .sortable li h3 {\n                width: 35%; }\n              #app #main-board #myframe .period-board .period .sortable li .time {\n                width: 40%; }\n              #app #main-board #myframe .period-board .period .sortable li .note {\n                width: 25%; }\n                #app #main-board #myframe .period-board .period .sortable li .note img {\n                  width: 30px;\n                  height: 30px; }\n              #app #main-board #myframe .period-board .period .sortable li .close {\n                position: absolute;\n                width: 15px;\n                height: 15px;\n                right: 0px;\n                top: 0px;\n                transform: translate(50%, -50%);\n                transition: all 0.4s; }\n                #app #main-board #myframe .period-board .period .sortable li .close:hover {\n                  width: 18px;\n                  height: 18px; }\n            #app #main-board #myframe .period-board .period .sortable .one-hour {\n              height: 100px; }\n            #app #main-board #myframe .period-board .period .sortable .one-helf {\n              height: 150px; }\n            #app #main-board #myframe .period-board .period .sortable .two-hour {\n              height: 200px; }\n            #app #main-board #myframe .period-board .period .sortable .two-helf {\n              height: 250px; }\n            #app #main-board #myframe .period-board .period .sortable .sugar {\n              background-color: #c4a15b; }\n          #app #main-board #myframe .period-board .period .evening {\n            height: 200px; }\n    #app #main-board #experience-board {\n      display: inline-flex;\n      width: calc(45% - 20px);\n      margin-top: 50px;\n      padding: 10px;\n      flex-wrap: nowrap;\n      justify-content: flex-start;\n      align-content: flex-start; }\n      #app #main-board #experience-board .col {\n        display: inline-flex;\n        flex-direction: column;\n        width: 150px;\n        justify-content: flex-start;\n        margin-right: 10px; }\n        #app #main-board #experience-board .col .spot {\n          display: inline-flex;\n          width: 150px;\n          height: 150px;\n          margin-top: 10px;\n          margin-right: 10px;\n          position: relative;\n          cursor: pointer;\n          justify-content: center;\n          align-items: center; }\n          #app #main-board #experience-board .col .spot:hover h3 {\n            z-index: 1; }\n          #app #main-board #experience-board .col .spot h3 {\n            color: white;\n            z-index: -1;\n            margin: 0;\n            transition: all 0.5s; }\n          #app #main-board #experience-board .col .spot img {\n            position: absolute;\n            top: 0px;\n            left: 0px;\n            width: 100%;\n            height: 100%;\n            transition: filter 0.4s; }\n            #app #main-board #experience-board .col .spot img:hover {\n              filter: brightness(50%); }\n        #app #main-board #experience-board .col .one-hour {\n          height: 100px; }\n        #app #main-board #experience-board .col .one-helf {\n          height: 140px; }\n        #app #main-board #experience-board .col .two-hour {\n          height: 180px; }\n        #app #main-board #experience-board .col .two-helf {\n          height: 220px; }\n", ""]);
 
 // exports
 

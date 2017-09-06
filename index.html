@@ -66,8 +66,8 @@
 				</div>
 				<div class="col-3 col">
 					<div class="spot" v-for="(spot,i) in recommendedSpot" v-if="i >= 6 && i < 9" :class="spot.period" :style="spot.style" v-on:mousedown = "select(i)">
-						<img :src="spot.imgUrl" alt="">
 						<h3>{{spot.title}}</h3>
+						<img :src="spot.imgUrl" alt="">
 					</div>
 				</div>
 			</div>
